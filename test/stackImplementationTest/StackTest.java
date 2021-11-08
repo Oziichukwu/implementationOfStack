@@ -114,6 +114,5 @@ public class StackTest {
         stack.push(21);
         stack.push(40);
         Assertions.assertThrows(Exception.class, () -> stack.push(23));
-
     }
 }
