@@ -1,5 +1,6 @@
 package stackImplementationTest;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import stackImplementation.Stack;
@@ -100,4 +101,19 @@ public class StackTest {
         assertEquals(4, stack.search(13));
     }
 
+    @Test
+    void stackPopMethodShouldThrowExceptionIfAttemptMadeToPopWhenStackIsEmpty() throws Exception{
+        Assertions.assertThrows(Exception.class, ()-> stack.pop());
+    }
+
+    @Test
+    void stackPushMethodShouldThrowExceptionIfAnAttemptIsMadeToPushWhenStackIsFull() throws Exception{
+        stack.push(29);
+        stack.push(13);
+        stack.push(12);
+        stack.push(21);
+        stack.push(40);
+        Assertions.assertThrows(Exception.class, () -> stack.push(23));
+
+    }
 }
